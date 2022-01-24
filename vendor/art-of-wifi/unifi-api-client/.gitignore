@@ -1,0 +1,16 @@
+# Ignore personal config file
+/examples/config.php
+
+# ignore accidentally generated vendor directory and composer.lock file, just in case...
+/vendor/
+/composer.lock
+
+# ignore phpdoc files
+/build
+.phpdoc-md
+
+# ignore XML files
+*.xml
+
+# ignore PHPStorm files
+.idea/*

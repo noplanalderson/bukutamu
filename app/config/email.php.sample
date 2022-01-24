@@ -1,0 +1,17 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$config = array(
+	'protocol' => "smtp",
+    'smtp_host' => "smtp.gmail.com", 
+    'smtp_port' => 465,
+    'smtp_user' => "somewhere@gmail.com",
+    'smtp_pass' => "(P4assw0rd)",
+    'smtp_crypto' => 'ssl',
+    'mailtype' => 'html',
+    'smtp_timeout' => '4',
+    'charset' => 'utf-8',
+    'wordwrap' => TRUE,
+    'crlf'    => "\r\n",
+    'newline' => "\r\n"
+);
