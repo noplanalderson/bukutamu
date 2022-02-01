@@ -113,7 +113,8 @@ class Masuk extends BUKUTAMU_Core {
 			$msg = validation_errors();
 		}
 
-		$index_page = (file_exists(APPPATH . 'config/email.php')) ? $user['index_page'] : 'pengaturan-smtp';
+		$index_page = empty($user['index_page']) ? '' : $user['index_page'];
+		$index_page = (file_exists(APPPATH . 'config/email.php')) ? $index_page : 'pengaturan-smtp';
 		$token = $this->security->get_csrf_hash();
 		$result = array('result' => $status, 'msg' => $msg, 'token' => $token, 'url' => empty($user) ? '' : $index_page);
 		
