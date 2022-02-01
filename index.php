@@ -223,13 +223,6 @@ switch (ENVIRONMENT)
  *  Now that we know the path, set the main path constants
  * -------------------------------------------------------------------
  */
-
-	$protocol = (isset($_SERVER['HTTPS']) &&
-	            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
-	            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
-	            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
-
-	define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . WEBDIR);
 	
 	// The name of THIS file
 	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
@@ -242,6 +235,15 @@ switch (ENVIRONMENT)
 
 	// Name of the "system" directory
 	define('SYSDIR', basename(BASEPATH));
+
+	include dirname(__FILE__).'/app/config/constants.php';
+	
+	$protocol = (isset($_SERVER['HTTPS']) &&
+	            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+	            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+	            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
+
+	define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . WEBDIR);
 
 	// The path to the "application" directory
 	if (is_dir($application_folder))
