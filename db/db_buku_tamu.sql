@@ -162,7 +162,7 @@ CREATE TABLE `tb_user` (
   `user_name` char(100) NOT NULL,
   `user_password` varchar(255) NOT NULL,
   `user_email` char(150) NOT NULL,
-  `user_token` int(6) UNSIGNED DEFAULT NULL,
+  `user_token` varchar(255) DEFAULT NULL,
   `user_picture` varchar(255) NOT NULL,
   `last_login` int(10) UNSIGNED DEFAULT NULL,
   `last_ip` varbinary(16) DEFAULT NULL,
