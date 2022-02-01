@@ -33,8 +33,7 @@ $protocol = (isset($_SERVER['HTTPS']) &&
 			($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || 
 			isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && 
 			$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
-$location = explode(DIRECTORY_SEPARATOR, dirname(__FILE__));
-$location = $protocol . $_SERVER['SERVER_NAME'] . '/' . end($location);
+$location = $protocol . $_SERVER['SERVER_NAME'] . '/' . WEBDIR;
 
 function checkDB()
 {
