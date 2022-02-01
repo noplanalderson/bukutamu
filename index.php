@@ -229,9 +229,7 @@ switch (ENVIRONMENT)
 	            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
 	            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
 
-	$webdir   = '/bukutamu/bukutamu';
-
-	define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . $webdir);
+	define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . WEBDIR);
 	
 	// The name of THIS file
 	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
