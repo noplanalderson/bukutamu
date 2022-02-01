@@ -86,4 +86,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 //APP VERSION
-defined('APP_VERSION')    	   OR define('APP_VERSION', '1.0.0');
+defined('APP_VERSION')    	   OR define('APP_VERSION', '1.0.1');
