@@ -70,7 +70,7 @@ class Log_tamu extends BUKUTAMU_Core {
 				$log->time_in,
 				$log->nama_tamu,
 				$log->time_in,
-				$log->time_out,
+				($log->time_out ?? '-'),
 				$log->organisasi,
 				$log->keperluan,
 				'<div class="btn-group" role="group" aria-label="Tools">'.button($btn['btn_detail'], FALSE, 'a', 'href="#" class="btn detail-tamu btn-info p-2" data-id="'.$log->visitor_hash.'" data-toggle="modal" data-target="#tamuModal"').'</div>'

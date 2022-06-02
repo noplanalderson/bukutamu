@@ -96,7 +96,7 @@ var tableCfg = {
             "type":"unix",
             "targets":3,
             "render": function (data, type, full, meta) {
-                return moment.unix(data).format("HH:mm (Z)");
+                if(data !== '-') { return moment.unix(data).format("HH:mm (Z)") } else { return '-'; }
             }
         }
     ],
@@ -242,13 +242,21 @@ $("#tblTamu").on('click', '.detail-tamu', function() {
                 hour: 'numeric',
                 minute: 'numeric'
             }));
-            $('.time_out').text(new Date(data.time_out * 1000).toLocaleDateString('id-ID', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric'
-            }));
+
+            let checkout = '-';
+
+            if(data.time_out !== null)
+            {
+                checkout = new Date(data.time_out * 1000).toLocaleDateString('id-ID', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric'
+                });
+            }
+
+            $('.time_out').text(checkout);
             $('.organisasi').text(data.organisasi);
             $('.nomor_telepon').text('+62'+data.nomor_telepon);
             $('.keperluan').text(data.keperluan);

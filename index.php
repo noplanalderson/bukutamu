@@ -243,7 +243,8 @@ switch (ENVIRONMENT)
 	            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
 	            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
 
-	define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . WEBDIR);
+	$port  = ($_SERVER['SERVER_PORT'] === 80 OR $protocol === 'https://') ? '' : ':'.$_SERVER['SERVER_PORT'];
+	define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . $port . WEBDIR);
 
 	// The path to the "application" directory
 	if (is_dir($application_folder))
