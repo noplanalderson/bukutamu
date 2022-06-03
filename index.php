@@ -235,10 +235,8 @@ switch (ENVIRONMENT)
 
 	// Name of the "system" directory
 	define('SYSDIR', basename(BASEPATH));
-
-	define('WEBDIR', '/bukutamu');
-
-	define('WEBPORT', 8443);
+	
+	include dirname(__FILE__).'/app/config/constants.php';
 	
 	$protocol = (isset($_SERVER['HTTPS']) &&
 	            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||

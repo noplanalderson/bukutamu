@@ -29,11 +29,13 @@ define('ERR_TABLE', 'Gagal Membuat table SQL');
 define('ERR_FILE_CFG', 'Gagal Membuat File Konfigurasi Database');
 define('INSTALL_SUCCESS', 'Proses Instalasi Berhasil. Mengalihkan ke halaman konfigurasi...');
 
-$protocol = (isset($_SERVER['HTTPS']) && 
-			($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || 
-			isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && 
-			$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
-$location = $protocol . $_SERVER['SERVER_NAME'] . WEBDIR;
+$protocol = (isset($_SERVER['HTTPS']) &&
+	            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+	            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+	            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
+
+$port  = ($_SERVER['SERVER_PORT'] === 80 OR $_SERVER['SERVER_PORT'] === 443) ? '' : ':'.WEBPORT;
+define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . $port . WEBDIR);
 
 function checkDB()
 {
@@ -408,7 +410,7 @@ else
 	                
 	                if (data.result == 1) {
 	                    Swal.fire('Berhasil!', data.msg, 'success');
-	                    setTimeout(function () { window.location.href = "<?= $location.'/masuk';?>";}, 3000);
+	                    setTimeout(function () { window.location.href = "<?= BASE_URL.'/masuk';?>";}, 3000);
 	                } else {
 	                    Swal.fire('Gagal!', data.msg, 'error');
 	                }

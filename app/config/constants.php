@@ -86,4 +86,6 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 //APP CONFIG
-defined('APP_VERSION')    	   OR define('APP_VERSION', '1.0.1');
+defined('APP_VERSION')    	   OR define('APP_VERSION', '1.0.10');
+defined('WEBDIR') 			   OR define('WEBDIR', '/bukutamu');
+defined('WEBPORT') 			   OR define('WEBPORT', 8443);
