@@ -236,14 +236,16 @@ switch (ENVIRONMENT)
 	// Name of the "system" directory
 	define('SYSDIR', basename(BASEPATH));
 
-	include dirname(__FILE__).'/app/config/constants.php';
+	define('WEBDIR', '/bukutamu');
+
+	define('WEBPORT', 8443);
 	
 	$protocol = (isset($_SERVER['HTTPS']) &&
 	            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
 	            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
 	            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
 
-	$port  = ($_SERVER['SERVER_PORT'] === 80 OR $protocol === 'https://') ? '' : ':'.$_SERVER['SERVER_PORT'];
+	$port  = ($_SERVER['SERVER_PORT'] === 80 OR $_SERVER['SERVER_PORT'] === 443) ? '' : ':'.WEBPORT;
 	define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . $port . WEBDIR);
 
 	// The path to the "application" directory
