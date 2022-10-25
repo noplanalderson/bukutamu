@@ -88,4 +88,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 //APP CONFIG
 defined('APP_VERSION')    	   OR define('APP_VERSION', '1.0.10');
 defined('WEBDIR') 			   OR define('WEBDIR', '/bukutamu');
-defined('WEBPORT') 			   OR define('WEBPORT', 8443);
+defined('WEBPORT') 			   OR define('WEBPORT', ($_SERVER['SERVER_PORT'] === 80 OR $_SERVER['SERVER_PORT'] === 443) ? $_SERVER['REMOTE_PORT'] : ':'.$_SERVER['SERVER_PORT']);
