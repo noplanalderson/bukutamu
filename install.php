@@ -34,8 +34,7 @@ $protocol = (isset($_SERVER['HTTPS']) &&
 	            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
 	            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
 
-$port  = ($_SERVER['SERVER_PORT'] === 80 OR $_SERVER['SERVER_PORT'] === 443) ? '' : ':'.WEBPORT;
-define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . $port . WEBDIR);
+define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . WEBPORT . WEBDIR);
 
 function checkDB()
 {
@@ -47,7 +46,7 @@ function checkDB()
 }
 
 if(checkDB()) {
-	header('Location:'.$location);
+	header('Location:'.BASE_URL);
 	exit();
 }
 
