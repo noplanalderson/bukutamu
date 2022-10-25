@@ -88,7 +88,7 @@ class Tamu extends BUKUTAMU_Core {
 					$this->email->message("Kepada <em>".$post['nama_tamu']."</em>, anda telah melakukan checkin pada aplikasi " . $this->app->app_title.". Gunakan kode berikut untuk melakukan checkout.<br/><br/><h3>".$token."</h3>");
 					
 					$status = (!$this->email->send()) ? 0 : 1;
-					$msg = ($status === 1) ? 'Token checkout telah dikirim ke email anda.' : $this->email->print_debugger();
+					$msg = ($status === 1) ? 'Token checkout ('.$token.') telah dikirim ke email anda.' : $this->email->print_debugger();
 
 					//---------------------------------------------------
 				}
