@@ -74,7 +74,6 @@ click_button.addEventListener('click', function() {
 
                     if (data.result == 1) {
                         Swal.fire('Berhasil!', data.msg, 'success');
-                        setTimeout(location.reload.bind(location), 1000);
                     } else {
                         Swal.fire('Gagal!', data.msg, 'error');
                     }
